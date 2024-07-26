@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
+import { reactDOM } from 'react-dom/client'
 import bookLogo from './assets/books.png'
 import Books from './components/Books.jsx'
+// import SingleBook from './components/SingleBook.jsx'
 
 function App() {
   const [token, setToken] = useState(null)
@@ -8,6 +11,8 @@ function App() {
   return (
     <>
     <Books />
+    {/* <SingleBook /> */}
+
       <h1><img id='logo-image' src={bookLogo}/>Library App</h1>
 
       <p>Complete the React components needed to allow users to browse a library catalog, check out books, review their account, and return books that they've finished reading.</p>
