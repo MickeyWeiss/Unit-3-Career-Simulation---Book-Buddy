@@ -25,5 +25,33 @@ const Books = () => {
         .catch(console.error)
     }, [])
     console.log(books)
+
+    const handleDetailsClick = (book) => {
+        const bookDetails = `
+            Title: ${book.title}
+            Author: ${book.author}
+            Description: ${book.description}
+            Available: ${book.available ? 'Yes, we have it' : 'Sorry, this book is out'}`
+            alert(bookDetails)    
+    }
+
+    return (
+        <div className = 'booksDiv'>
+            <h2>Library Books</h2>
+            <div className = 'booksList'>
+                {books.map((book) => (
+                    <div key={book.id} className='aBook'>
+                        <img src={book.coverimage} alt={book.title} className='bookCover'/>
+                        <div className="bookInfo">
+                            <h5 className='bookTitle' onClick={() => handleDetailsClick(book)}>{book.title}</h5>
+                            <button className='bookButton'>View Book</button>
+
+                        </div>
+
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
 }
 export default Books

@@ -3,15 +3,17 @@ import { useEffect } from 'react'
 import { reactDOM } from 'react-dom/client'
 import bookLogo from './assets/books.png'
 import Books from './components/Books.jsx'
-// import SingleBook from './components/SingleBook.jsx'
+import SingleBook from './components/SingleBook.jsx'
+import Register from './components/Register.jsx'
 
 function App() {
   const [token, setToken] = useState(null)
 
   return (
     <>
+    <Register />
     <Books />
-    {/* <SingleBook /> */}
+    <SingleBook />
 
       <h1><img id='logo-image' src={bookLogo}/>Library App</h1>
 
