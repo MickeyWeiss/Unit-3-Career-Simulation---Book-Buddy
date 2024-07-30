@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { useNavigate } from 'react'
 
 const Register = () => {
     const [registerInfo, setRegisterInfo] = useState ({
@@ -12,14 +11,13 @@ const Register = () => {
         password: '',
     })
     const [error, setError] = useState('')
-    // const navigate = useNavigate()
 
     const handleRegisterChange = (event) => {
         const {name, value} = event.target
         setRegisterInfo({...registerInfo, [name]: value})
     }
 
-    const handleSubmit = async (event) => {
+    const handleRegisterSubmit = async (event) => {
         event.preventDefault()
         try {
             const response = await fetch('https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/register', {
@@ -43,7 +41,7 @@ const Register = () => {
         <div>
             <h2>Create a Library Account</h2>
             {error && <p className='error'>{error}</p>}
-            <form>
+            <form onSubmit = {handleRegisterSubmit}>
                 <label>First Name: </label>
                 <input type = 'text' name ='firstName' value = {registerInfo.firstName} onChange = {handleRegisterChange}/>
                 

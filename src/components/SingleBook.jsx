@@ -3,12 +3,12 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
 
-const SingleBook = ({bookID}) => {
+const SingleBook = ({bookId}) => {
     const [book, setBook] = useState(null)
     const [error, setError] = useState('')
 
     useEffect(() => {
-        fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books/${bookID}`, {
+        fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books/:${bookId}`, {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -22,9 +22,8 @@ const SingleBook = ({bookID}) => {
         .then(result => setBook(result))
         .catch(error => {
             console.error('error fetching book')
-            setError('could not fetch book')
         })
-    }, [bookID])
+    }, [bookId])
 }
 
 export default SingleBook

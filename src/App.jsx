@@ -1,17 +1,43 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { reactDOM } from 'react-dom/client'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import bookLogo from './assets/books.png'
 import Books from './components/Books.jsx'
 import SingleBook from './components/SingleBook.jsx'
 import Register from './components/Register.jsx'
+import Login from './components/Login.jsx'
+import Account from './components/Account.jsx'
+import Navigations from './components/Navigations.jsx'
+import Home from './components/Home.jsx'
 
 function App() {
   const [token, setToken] = useState(null)
 
+  const handleLogout = () => {
+    setToken(null)
+  }
+
+
   return (
     <>
+
+    {/* <Router>
+      <div>
+        <Navitations user = {user} />
+        <Routes>
+          <Route path = '/' element = {<Home />} />
+          <Route path = '/books' element = {<Books />} />
+          <Route path = '/accout' elemnt = {<Account user = {user} onLogin = {handleLogin} />} />
+          <Route path = '/register' element ={<Register />} />
+        </Routes>
+      </div>
+    </Router> */}
+
+    {/* <Navigations /> */}
+    <Home />
+    <Account />
     <Register />
+    <Login />
     <Books />
     <SingleBook />
 
