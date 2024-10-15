@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import bookLogo from './assets/books.png'
 import Books from './components/Books.jsx'
 import SingleBook from './components/SingleBook.jsx'
@@ -20,26 +20,25 @@ function App() {
 
   return (
     <>
+  <div id='nav-bar-container'>
+    <div id='navbar'>
+      <Link to={"/"}>Home</Link>
+      <Link to={"/account"}>Account</Link>
+      <Link to={"/books"}>Books</Link>
+      <Link to= {"/login"}>Login</Link>
+      <Link to={"/register"}>Register</Link>
 
-    {/* <Router>
-      <div>
-        <Navitations user = {user} />
-        <Routes>
-          <Route path = '/' element = {<Home />} />
-          <Route path = '/books' element = {<Books />} />
-          <Route path = '/accout' elemnt = {<Account user = {user} onLogin = {handleLogin} />} />
-          <Route path = '/register' element ={<Register />} />
-        </Routes>
-      </div>
-    </Router> */}
-
-    {/* <Navigations /> */}
-    <Home />
-    <Account />
-    <Register />
-    <Login />
-    <Books />
-    <SingleBook />
+    </div>
+  <div>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/account" element={<Account/>}/>
+      <Route path="/books" element={<Books/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/register" element={<Register/>}/>
+    </Routes>
+  </div>
+  </div>
 
       <h1><img id='logo-image' src={bookLogo}/>Library App</h1>
 
